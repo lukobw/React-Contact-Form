@@ -9,6 +9,7 @@ var ContactForm = React.createClass ({
                     type: 'text',
                     placeholder: 'Name',
                     value: this.props.contact.firstName,
+                    onChange: this.props.onNameChange,
                 }),
                 React.createElement('input', {
                     type: 'text',

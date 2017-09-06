@@ -26,12 +26,28 @@ var contactForm = {
 };
 
 var App = React.createClass ({
+    getInitialState: function() {
+        return {
+            contactForm: { 
+                firstName: '',
+                lastName: '',
+                email: ''
+            },
+        };
+    },
+    onNameChange: function(event) {
+        this.setState({
+            contactForm: {
+                firstName: event.target.value
+            }
+        });
+    },
     render: function() {
         return (
             React.createElement('div', {className: 'app'},
-                React.createElement(ContactForm, {contact: contactForm}),
-                React.createElement(Contacts, {items: contacts}, {})
+                React.createElement(ContactForm, {contact: this.state.contactForm, onNameChange: this.onNameChange} ),
+                React.createElement(Contacts, {items: this.state.contacts}, {})
             )
         );
-    }
+    },
 });
