@@ -15,14 +15,18 @@ var ContactForm = React.createClass ({
                     type: 'text',
                     placeholder: 'Surname',
                     value: this.props.contact.lastName,
+                    onChange: this.props.onNameChange,
                 }),
                 React.createElement('input', {
                     type: 'text',
                     placeholder: 'Email',
                     value: this.props.contact.email,
+                    onChange: this.props.onNameChange,
                 }),
                 React.createElement('button', {
-                    type: 'submit'},
+                     type: 'submit',
+                     onContactAdd: this.props.onContactAdd,
+                },
                     "Add contact"
                 )
             )

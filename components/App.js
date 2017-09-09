@@ -35,6 +35,11 @@ var App = React.createClass ({
             },
         };
     },
+    onContactAdd: function () {
+        var newContact = this.state.contactForm;
+        var newContacts = this.state.contacts.concat(newContact);
+        this.setState({contacts: newContacts});
+    },
     onNameChange: function(event) {
         this.setState({
             contactForm: {
@@ -45,8 +50,8 @@ var App = React.createClass ({
     render: function() {
         return (
             React.createElement('div', {className: 'app'},
-                React.createElement(ContactForm, {contact: this.state.contactForm, onNameChange: this.onNameChange} ),
-                React.createElement(Contacts, {items: this.state.contacts}, {})
+                React.createElement(ContactForm, {contact: this.state.contactForm, onNameChange: this.onNameChange}),
+                React.createElement(Contacts, {items: this.state.contacts, onContactAdd: this.onContactAdd})
             )
         );
     },
